@@ -131,5 +131,44 @@ elapsedTime = new Date().getTime() - startTime;
 console.log('tri rapide: '+elapsedTime/arrayNumber + ' ms');
 
 
+// tri fusion version elixir
+
+
+function _divise(l,acc1 = [],acc2 = []){
+    if (l.length == 0) {
+         return [acc1,acc2]
+    }else if( (l.slice(1)).length == 0){
+        return  [[l[0]].concat(acc1),acc2]
+    } else {
+        return _divise(l.slice(2),[l[0]].concat(acc1),[l.slice(1)[0]].concat(acc2))
+    }
+}
+
+
+
+function _fussionne(l1,l2,acc = []){
+    if(l1.length == 0){
+        return acc.concat(l2)
+    }else if(l2.length == 0){
+        return acc.concat(l1)
+    }else{
+        return l1[0] < l2[0] && _fussionne(l1.slice(1),l2,acc.concat([l1[0]])) ||_fussionne(l1,l2.slice(1),acc.concat([l2[0]]))
+    }
+}
+
+function _tri_fusion(l,acc = []){
+    if(l.length == 0){
+        return acc
+    }else if(l.slice(1).length==0){
+        return l
+    }else{
+        tuple = _divise(l)
+        const l1 = tuple[0]
+        const l2 = tuple[1]
+        return _fussionne(_tri_fusion(l1),_tri_fusion(l2))
+    }
+}
+
+
 
 // faire des courbes sur 10, 100 répétitions....
