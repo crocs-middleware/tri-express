@@ -80,8 +80,8 @@ const ramdomArray = function(l){
 }
 
 
-var arraySize = 10000;
-var arrayNumber = 1000;
+var arraySize = 1000;
+var arrayNumber = 10000;
 
 var array1 = []
 var array2 = []
@@ -121,14 +121,25 @@ console.log('tri fusion: '+elapsedTime/arrayNumber + ' ms');
 var startTime = new Date().getTime();
 var elapsedTime = 0;
 
-
 for (let index = 0; index < arrayNumber; index++) {
-    quick_Sort(array3[index])
+    _tri_fusion(array3[index])
 }
 
 elapsedTime = new Date().getTime() - startTime;
 
-console.log('tri rapide: '+elapsedTime/arrayNumber + ' ms');
+console.log('tri fusion elixir: '+elapsedTime/arrayNumber + ' ms');
+
+// var startTime = new Date().getTime();
+// var elapsedTime = 0;
+
+
+// for (let index = 0; index < arrayNumber; index++) {
+//     quick_Sort(array3[index])
+// }
+
+// elapsedTime = new Date().getTime() - startTime;
+
+// console.log('tri rapide: '+elapsedTime/arrayNumber + ' ms');
 
 
 // tri fusion version elixir
